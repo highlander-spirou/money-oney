@@ -1,0 +1,4 @@
+__pycache__
+.env
+extract/screenshots/*
+!.gitinclude
