@@ -9,7 +9,6 @@ from bs4.element import Tag
 from time import sleep
 from extract.retry_decorator import retry_on_min_len, retry_on_none
 
-validate_counter = lambda x: x+1 if x < 7 else 0
 
 def create_driver(url:str) -> Chrome:
     chrome_options = Options()
