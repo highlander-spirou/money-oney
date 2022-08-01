@@ -7,7 +7,7 @@ class TableDataInterface(TypedDict):
     company: str
     fund_type: str
     price: float
-    update_at: datetime
+    price_updated_at: datetime
 
 def clean_table_generator(table_gen) -> List[TableDataInterface]:
     result_list = []
@@ -21,11 +21,11 @@ def clean_table_generator(table_gen) -> List[TableDataInterface]:
             elif index == 2:
                 dict_i['fund_type'] = value
             elif index == 3:
-                price, purchase_time = value.split('Cập nhật ngày')
+                price, price_updated_at = value.split('Cập nhật ngày')
                 price = float(price.replace(',', ''))
-                purchase_time = datetime.strptime(purchase_time.strip()+'/'+str(datetime.now().year), '%d/%m/%Y')
+                price_updated_at = datetime.strptime(price_updated_at.strip()+'/'+str(datetime.now().year), '%d/%m/%Y')
                 dict_i['price'] = price
-                dict_i['purchase_time'] = purchase_time
+                dict_i['price_updated_at'] = price_updated_at
         result_list.append(dict_i)
 
     return result_list
@@ -40,14 +40,14 @@ def clean_fund_src(returned_table):
     dict_page_src = {i: parse_fund_page_src(returned_table[i]) for i in returned_table.keys()}
     result_dict = {}
     for index, value in dict_page_src.items():
-        place_order, conversion_fee = value[4:6]
-        splitted_place_order = ' '.join(place_order[33:].split(' ngày '))
-        place_order = datetime.strptime(splitted_place_order, '%H:%M %d/%m/%Y')
+        place_order_time, conversion_fee = value[4:6]
+        splitted_place_order_time = ' '.join(place_order_time[33:].split(' ngày '))
+        place_order_time = datetime.strptime(splitted_place_order_time, '%H:%M %d/%m/%Y')
         if len(conversion_fee) > 0:
             number_found = re.findall("\d+\.\d+|\d+", conversion_fee)[0]
             conversion_fee = float(number_found)
         else:
             conversion_fee = 0
-        result_dict[index] = (place_order, conversion_fee)
+        result_dict[index] = (place_order_time, conversion_fee)
 
     return result_dict
