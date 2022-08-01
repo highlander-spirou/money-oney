@@ -2,3 +2,6 @@ __pycache__
 .env
 extract/screenshots/*
 !.gitinclude
+.replit
+replit.nix
+venv/*
