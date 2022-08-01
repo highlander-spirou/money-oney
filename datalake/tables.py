@@ -13,7 +13,7 @@ class Table(Base):
     company:str = Column(String)
     fund_type:str = Column(String)
     price:float = Column(Float)
-    purchase_time:datetime = Column(DateTime)
+    price_updated_at:datetime = Column(DateTime)
     create_at:datetime = Column(DateTime)
 
 
