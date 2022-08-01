@@ -9,8 +9,6 @@ from bs4.element import Tag
 from time import sleep
 from extract.retry_decorator import retry_on_min_len, retry_on_none
 
-validate_counter = lambda x: x+1 if x < 7 else 0
-
 def create_driver(url:str) -> Chrome:
     chrome_options = Options()
     chrome_options.add_argument('--headless')
@@ -66,13 +64,3 @@ def run_crawler(url):
                 returned_table[i] = crawl_fund(i, driver)
             
         return table, returned_table
-
-
-if __name__ == '__main__':
-    import pickle
-    url = r'https://fmarket.vn/san_pham?search=CHUNG_CHI_QUY-YWxs'
-    table, returned_table = run_crawler(url)
-    with open(f'cache/table.pickle', 'wb') as cache_file:
-            pickle.dump(table, cache_file)
-    with open(f'cache/returned_table.pickle', 'wb') as cache_file:
-            pickle.dump(returned_table, cache_file)
