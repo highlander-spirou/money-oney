@@ -51,14 +51,3 @@ def clean_fund_src(returned_table):
         result_dict[index] = (place_order, conversion_fee)
 
     return result_dict
-
-
-if __name__ == '__main__':
-    import pickle
-    with open(f'cache/table.pickle', 'rb') as fp:
-            table = pickle.load(fp)
-    with open(f'cache/returned_table.pickle', 'rb') as fp:
-            returned_table = pickle.load(fp)
-
-    print(clean_table_generator(table))
-    # print(clean_fund_src(returned_table))
