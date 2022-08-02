@@ -8,7 +8,7 @@ if __name__ == '__main__':
     inspector = inspect(engine)
     meta_tables = {i for i in Base.metadata.tables.keys()}
     remote_tables = set(inspector.get_table_names())
-    if len(remote_tables & meta_tables) == 0:
+    if len(meta_tables - remote_tables) > 0:
         Base.metadata.create_all(engine)
         print('All base engine has been created')
 
