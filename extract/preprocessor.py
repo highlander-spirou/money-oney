@@ -38,7 +38,7 @@ def parse_fund_page_src(page_src):
 
 def clean_fund_src(returned_table):
     dict_page_src = {i: parse_fund_page_src(returned_table[i]) for i in returned_table.keys()}
-    result_dict = {}
+    result_list = []
     for index, value in dict_page_src.items():
         place_order_time, conversion_fee = value[4:6]
         splitted_place_order_time = ' '.join(place_order_time[33:].split(' ngày '))
@@ -48,6 +48,6 @@ def clean_fund_src(returned_table):
             conversion_fee = float(number_found)
         else:
             conversion_fee = 0
-        result_dict[index] = (place_order_time, conversion_fee)
+        result_list.append((index, place_order_time, conversion_fee))
 
-    return result_dict
+    return result_list
