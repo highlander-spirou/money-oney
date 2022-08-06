@@ -9,6 +9,12 @@ from bs4.element import Tag
 from time import sleep
 from extract.retry_decorator import retry_on_min_len, retry_on_none
 
+import sys
+sys.path.insert(0, '/home/lelet/selenium_linux/')
+
+
+from const import ROOT
+
 def create_driver(url:str) -> Chrome:
     chrome_options = Options()
     chrome_options.add_argument('--headless')
@@ -29,7 +35,7 @@ def crawl_table(driver:Chrome) -> list:
     table_src = soup.find('table')
     data = []
     rows: Tag = table_src.find_all('tr')[3:] # bắt đầu từ số 3
-    driver.get_screenshot_as_file(f"screenshots/screenshot.png")
+    driver.get_screenshot_as_file(f"{ROOT}/extract/screenshots/screenshot.png")
 
     for row in rows:
         data.append([value.text.strip() for value in row.children if isinstance(value, Tag)])
@@ -41,7 +47,7 @@ def crawl_fund(fund:str, driver) -> Tag:
     print(f'crawling {fund}')
     link = driver.find_element("xpath", f'//a[contains(text(), "{fund}")]')
     link.click()
-    driver.get_screenshot_as_file(f"screenshots/screenshot-{fund}.png")
+    driver.get_screenshot_as_file(f"{ROOT}/extract/screenshots/screenshot-{fund}.png")
     block_up = driver.find_elements(by=By.CSS_SELECTOR, value=".block-up")
     block_up = block_up[0]
     block_up_html = block_up.get_attribute('innerHTML')
