@@ -3,7 +3,7 @@
 
 - Parsing the web using Selenium and Python
 - Database construction with SQLAlchemy and version-migrate options by Alembic
-- Storing parsed data into remote data lake services Supabase and BackBlaze
+- Storing parsed data into remote data lake services by Scheduler
 - Writing compability API for data extraction (GraphQL, raw SQL string protection with Psycorg2)
 - Admin section (Master-servent model, issue addressing and deadline tracking (like Monday.com), activities tracking)
 - Extensible on-the-fly data science and machine learning model for researching and working with the datasets (adoption to the compability API)

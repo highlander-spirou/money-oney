@@ -42,3 +42,4 @@ class AdditionalInfoFactory(NamedTuple):
     place_order_time:datetime
     conversion_fee:float
     create_at:datetime = datetime.utcnow() + timedelta(hours=7)
+
