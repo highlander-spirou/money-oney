@@ -6,7 +6,7 @@ ROOT_DIR = Path(__file__).parent.parent
 if __name__ == '__main__':
         sys.path.insert(0, '/home/lelet/selenium_linux/')
         from datalake.utils import add_all_additional_info
-        from testing.preprocessor_ import preprocessor_test_module
+        from testing.test_crawler.preprocessor_ import preprocessor_test_module
         from sqlalchemy import create_engine
         from decouple import config
 
