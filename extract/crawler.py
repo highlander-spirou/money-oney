@@ -15,7 +15,7 @@ def create_driver(url:str) -> Chrome:
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument("--window-size=1920,1080")
 
-    driver = Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()), options=chrome_options)
+    driver = Chrome(service=ChromiumService(ChromeDriverManager(version="103.0.5060.134", chrome_type=ChromeType.CHROMIUM, path = r"driver").install()), options=chrome_options)
     driver.set_page_load_timeout(30)
     print('driver instantiated')
     driver.get(url)
