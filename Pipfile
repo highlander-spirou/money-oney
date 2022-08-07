@@ -11,5 +11,7 @@ lxml = "*"
 sqlalchemy = "*"
 psycopg2 = "*"
 alembic = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+install = "*"
 
 [dev-packages]
