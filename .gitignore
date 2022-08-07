@@ -5,3 +5,4 @@ extract/screenshots/*
 .replit
 replit.nix
 venv/*
+_build/*
