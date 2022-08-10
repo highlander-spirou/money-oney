@@ -26,8 +26,6 @@ class AdditionalInfo(Base):
     conversion_fee:float = Column(Float)
     create_at:datetime = Column(DateTime)
 
-    
-
 
 class HomePageTableFactory(NamedTuple):
     fund:str
