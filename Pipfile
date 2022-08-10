@@ -13,5 +13,6 @@ psycopg2 = "*"
 alembic = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 install = "*"
+mangum = "*"
 
 [dev-packages]

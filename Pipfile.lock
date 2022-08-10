@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "56490cae95bc4a4cb7478ef9e40ab2774daad14138f87f4d106e86559fa9c916"
+            "sha256": "d7111e8ce62a5184c0efcac585ca9df0f0c12425bc8a41233f5faf347343a42b"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -135,7 +135,7 @@
                 "sha256:5189b6f22b01957427f35b6a08d9a0bc45b46d3788ef5a92e978433c7a35f8a5",
                 "sha256:575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_full_version >= '3.6.0'",
             "version": "==2.1.0"
         },
         "click": {
@@ -239,7 +239,7 @@
                 "sha256:70813c1135087a248a4d38cc0e1a0181ffab2188141a93eaf567940c3957ff06",
                 "sha256:8ddd78563b633ca55346c8cd41ec0af27d3c79931828beffb46ce70a379e7442"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_full_version >= '3.6.0'",
             "version": "==0.13.0"
         },
         "httptools": {
@@ -396,6 +396,14 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==1.2.1"
+        },
+        "mangum": {
+            "hashes": [
+                "sha256:12e84806198b23bbd5a54b9b69c1aef3c62177347219bb57c8ec114b8a6b8537",
+                "sha256:bfd0e59ca8102be119b00b0d65894fcead8184438ecfa3110f87c7d2d9c90f01"
+            ],
+            "index": "pypi",
+            "version": "==0.15.0"
         },
         "markupsafe": {
             "hashes": [
@@ -571,7 +579,7 @@
                 "sha256:3b2503d3c7084a42b1ebd08116e5f81aadfaea95863628c80a3b774a11b7c759",
                 "sha256:fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_full_version >= '3.6.0'",
             "version": "==2.3.2.post1"
         },
         "sqlalchemy": {
@@ -639,6 +647,14 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==0.9.2"
+        },
+        "typing-extensions": {
+            "hashes": [
+                "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02",
+                "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==4.3.0"
         },
         "urllib3": {
             "extras": [
