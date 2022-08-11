@@ -1,3 +1,6 @@
 test_datastruct: ✔
 test_add_homepage: ✔
 test_add_info: ✔
+test_crawler: ✔
+test_preprocessor_table: ✔
+test_preprocessor_fund: ✔
