@@ -1,0 +1,47 @@
+service: crawler-cron-project
+
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: ap-southeast-1
+
+
+layers:
+  python:
+    path: lambda_functions/packages # required, path to layer contents on disk
+    name: new-layer # optional, Deployed Lambda layer name
+    compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
+      - python3.8
+    compatibleArchitectures: # optional, a list of architectures this layer is compatible with
+      - x86_64
+      - arm64
+    licenseInfo: GPLv3 # optional, a string specifying license information
+    retain: true # optional, false by default. If true, layer versions are not deleted as new ones are created
+
+
+package:
+  patterns:
+  - "!package.json"
+  - "!package-lock.json"
+  - "!.serverless/**"
+  - "!__pycache__"
+  - "!alembic"
+  - "!extract"
+  - "main-package"
+  - "!myenv"
+  - "!testing"
+  - "!.env"
+  - "!.gitignore"
+  - "!.gitrequire.env"
+  - "!alembic.ini"
+  - "!build.sh"
+
+
+
+functions:
+  rateHandler:
+    handler: lambda_functions/handler.run
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(1 minute)

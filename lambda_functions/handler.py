@@ -1,5 +1,4 @@
-from global_config.configs import g as cfg
-
+from global_config.configs import g as global_cfg
 
 def run(event, context):
-    print(cfg.get_current_dir())
+    print(global_cfg.get_current_dir())
