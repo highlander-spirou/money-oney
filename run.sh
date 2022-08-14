@@ -1,0 +1,1 @@
+source myenv/bin/activate && python3 functions/handler.py

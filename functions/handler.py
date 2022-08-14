@@ -8,8 +8,7 @@ from db import add_all_additional_info, add_all_homepage
 url = config('SCRAPES_URL')
 db_uri = config('POSTGRES_URI')
 
-
-def run(event, context):
+def run():
     dirty_table, dirty_fund_src = run_crawler(url)
     clean_table = clean_table_generator(dirty_table)
     clean_fund = clean_fund_src(dirty_fund_src)
@@ -20,4 +19,4 @@ def run(event, context):
 
 
 if __name__ == '__main__':
-    run('', '')
+    run()

@@ -1,7 +1,0 @@
-{
-  "name": "crawler-cron-project",
-  "version": "1.0.0",
-  "description": "Lambda function to trigger crawler every 1 day",
-  "author": "",
-  "license": "MIT"
-}

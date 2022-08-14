@@ -7,7 +7,6 @@ from db import add_all_additional_info, add_all_homepage
 
 url = config('SCRAPES_URL')
 db_uri = config('POSTGRES_URI')
-test_mode = config('TEST_MODE', None)
 
 def run(event, context):
     dirty_table, dirty_fund_src = run_crawler(url)

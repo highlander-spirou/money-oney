@@ -9,18 +9,14 @@ from bs4.element import Tag
 from time import sleep
 from extract.retry_decorator import retry_on_min_len, retry_on_none
 
-def create_driver(url:str, test_mode=None) -> Chrome:
+def create_driver(url:str) -> Chrome:
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument("--window-size=1920,1080")
 
-    if test_mode is not None:
-        driver = Chrome(service=ChromiumService(ChromeDriverManager(version="103.0.5060.134", chrome_type=ChromeType.CHROMIUM, path = r"driver/").install()), options=chrome_options)
+    driver = Chrome(service=ChromiumService(ChromeDriverManager(version="103.0.5060.134", chrome_type=ChromeType.CHROMIUM, path = r"driver/").install()), options=chrome_options)
     
-    else:
-        chrome_options.binary_location = '/opt/headless-chromium'
-        driver = Chrome(executable_path="/opt/chromedriver", options=chrome_options)
     driver.set_page_load_timeout(30)
     print('driver instantiated')
     driver.get(url)
@@ -59,9 +55,9 @@ def crawl_fund(fund:str, driver) -> Tag:
 
 
 
-def run_crawler(url, test_mode=None):
+def run_crawler(url):
         print('start crawling process')
-        with create_driver(url, test_mode) as driver:
+        with create_driver(url) as driver:
             table = crawl_table(driver)
             data = [i[0] for i in table]
             returned_table = {}
