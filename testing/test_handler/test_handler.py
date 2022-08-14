@@ -7,13 +7,18 @@ from db import add_all_additional_info, add_all_homepage
 
 url = config('SCRAPES_URL')
 db_uri = config('POSTGRES_URI')
-test_mode = config('TEST_MODE', None)
+# test_mode = config('TEST_MODE', None)
+test_mode = None
 
 def run(event, context):
-    dirty_table, dirty_fund_src = run_crawler(url)
+    dirty_table, dirty_fund_src = run_crawler(url, test_mode)
     clean_table = clean_table_generator(dirty_table)
     clean_fund = clean_fund_src(dirty_fund_src)
 
     engine = create_engine(db_uri)
     add_all_homepage(clean_table, engine)
     add_all_additional_info(clean_fund, engine)
+
+
+if __name__ == '__main__':
+    run('', '')

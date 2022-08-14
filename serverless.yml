@@ -10,7 +10,8 @@ provider:
 layers:
   python:
     path: lambda_functions/packages # required, path to layer contents on disk
-    name: new-layer # optional, Deployed Lambda layer name
+    name: scrape-layer # optional, Deployed Lambda layer name
+    description: version 0.1
     compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
       - python3.8
     compatibleArchitectures: # optional, a list of architectures this layer is compatible with
@@ -22,13 +23,12 @@ layers:
 
 package:
   patterns:
+  # exclude
   - "!package.json"
   - "!package-lock.json"
   - "!.serverless/**"
   - "!__pycache__"
   - "!alembic"
-  - "!extract"
-  - "main-package"
   - "!myenv"
   - "!testing"
   - "!.env"
@@ -36,6 +36,11 @@ package:
   - "!.gitrequire.env"
   - "!alembic.ini"
   - "!build.sh"
+  - "!lambda_functions/__pycache__"
+  - "!chromebin.zip"
+
+  # include 
+  - "main-package"
 
 
 
@@ -44,4 +49,4 @@ functions:
     handler: lambda_functions/handler.run
     events:
       # Invoke Lambda function every minute
-      - schedule: rate(1 minute)
+      - schedule: rate(1 day)

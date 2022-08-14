@@ -10,6 +10,7 @@ driver
 myenv
 .serverless
 lambda_functions/packages
+chromebin.zip
 
 main-package/*
 !main-package/db/*
